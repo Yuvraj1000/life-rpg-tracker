@@ -1,0 +1,577 @@
+/* ============================================================
+   GRINDR — style.css
+   Light Parchment Theme
+   ============================================================ */
+
+/* ---------- Google Fonts imported in index.html ---------- */
+
+/* ---------- Reset & Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f0e8;
+  color: #2a1f0e;
+  font-family: 'Crimson Text', Georgia, serif;
+  min-height: 100vh;
+}
+
+/* ---------- App Container ---------- */
+#app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1.5rem 1.2rem;
+}
+
+/* ---------- Title ---------- */
+.game-title {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #7a3a0a;
+  text-align: center;
+  letter-spacing: 5px;
+  margin-bottom: 0.2rem;
+}
+
+.game-subtitle {
+  font-size: 15px;
+  color: #a07840;
+  text-align: center;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* ---------- Panels ---------- */
+.panel {
+  background: #fffdf5;
+  border: 1.5px solid #d4b896;
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(120, 80, 20, 0.07);
+}
+
+.panel-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a3a0a;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid #e0c9a8;
+  padding-bottom: 0.5rem;
+}
+
+/* ---------- Hero / Character Row ---------- */
+.char-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #f0e8d0;
+  border: 2.5px solid #c8902a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  flex-shrink: 0;
+}
+
+.char-info {
+  flex: 1;
+  min-width: 160px;
+}
+
+.char-name {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #5a2a06;
+}
+
+.char-class {
+  font-size: 15px;
+  color: #a06020;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.char-tier {
+  font-size: 12px;
+  color: #c8902a;
+  letter-spacing: 1px;
+  margin-bottom: 7px;
+}
+
+/* ---------- XP Bar ---------- */
+.xp-bar-wrap {
+  background: #ece0c8;
+  border: 1px solid #d4b896;
+  border-radius: 6px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c8902a, #f0c040);
+  border-radius: 6px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.xp-text {
+  font-size: 12px;
+  color: #a07840;
+  margin-top: 3px;
+}
+
+/* ---------- Level Badge ---------- */
+.level-badge {
+  background: #f0e8d0;
+  border: 2.5px solid #c8902a;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.level-num {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #7a3a0a;
+  line-height: 1;
+}
+
+.level-label {
+  font-size: 9px;
+  color: #a07840;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ---------- Two Column Layout ---------- */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Stats Grid ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.stat-card {
+  background: #f5ede0;
+  border: 1px solid #d4b896;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.stat-val {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #7a3a0a;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #a07840;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Tier Progress (Class Hierarchy) ---------- */
+.tier-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tier-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ddd0b8;
+  border: 1.5px solid #c4a878;
+  flex-shrink: 0;
+}
+
+.tier-dot.reached {
+  background: #c8902a;
+  border-color: #c8902a;
+}
+
+.tier-dot.current {
+  background: #7a3a0a;
+  border-color: #7a3a0a;
+  box-shadow: 0 0 5px rgba(122, 58, 10, 0.4);
+}
+
+.tier-name {
+  font-size: 13px;
+  color: #b8a080;
+}
+
+.tier-name.reached {
+  color: #a06020;
+}
+
+.tier-name.current {
+  color: #7a3a0a;
+  font-weight: 600;
+  font-family: 'Cinzel', serif;
+}
+
+.tier-xp {
+  font-size: 12px;
+  color: #c4a878;
+  margin-left: auto;
+}
+
+/* ---------- Achievements ---------- */
+.badges-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.badge-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f5ede0;
+  border: 1.5px solid #d4b896;
+  border-radius: 9px;
+  padding: 12px 16px;
+  transition: border-color 0.2s;
+}
+
+.badge-row.earned {
+  background: #fff8ec;
+  border-color: #c8902a;
+}
+
+.badge-row.locked {
+  opacity: 0.45;
+}
+
+.badge-emoji {
+  font-size: 26px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.badge-text {
+  flex: 1;
+}
+
+.badge-name {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7a3a0a;
+}
+
+.badge-row.locked .badge-name {
+  color: #b8a080;
+}
+
+.badge-desc {
+  font-size: 14px;
+  color: #a06020;
+  font-style: italic;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.badge-row.earned .badge-desc {
+  color: #8a5010;
+}
+
+.badge-progress-wrap {
+  background: #ece0c8;
+  border: 1px solid #d4b896;
+  border-radius: 4px;
+  height: 7px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.badge-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c8902a, #f0c040);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.badge-status {
+  font-size: 12px;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
+}
+
+.badge-row.earned .badge-status {
+  color: #4a8a20;
+}
+
+.badge-row.locked .badge-status {
+  color: #b8a080;
+}
+
+/* ---------- Quest List ---------- */
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.quest-item {
+  background: #f5ede0;
+  border: 1.5px solid #d4b896;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.quest-item:hover {
+  border-color: #c8902a;
+}
+
+.quest-item.done {
+  opacity: 0.45;
+  border-color: #e8dcc8;
+}
+
+.quest-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.quest-info {
+  flex: 1;
+}
+
+.quest-name {
+  font-size: 16px;
+  color: #2a1f0e;
+  font-weight: 600;
+}
+
+.quest-item.done .quest-name {
+  text-decoration: line-through;
+  color: #b8a080;
+}
+
+.quest-xp {
+  font-size: 13px;
+  color: #c8902a;
+  font-style: italic;
+}
+
+.quest-streak {
+  font-size: 12px;
+  color: #a07840;
+  margin-top: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.complete-btn {
+  background: #eaf5e0;
+  border: 1.5px solid #7ab840;
+  color: #3a7010;
+  border-radius: 7px;
+  padding: 7px 14px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.complete-btn:hover {
+  background: #d8f0c0;
+  border-color: #50a020;
+}
+
+.complete-btn.done-btn {
+  background: #f0ece0;
+  border-color: #d0c8b0;
+  color: #a09870;
+  cursor: default;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #c4a878;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.delete-btn:hover {
+  color: #c03020;
+}
+
+.add-btn {
+  background: #f5ede0;
+  border: 1.5px solid #c8902a;
+  color: #7a3a0a;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  background: #ece0c8;
+}
+
+.reset-day-btn {
+  background: #fdf0ee;
+  border: 1.5px solid #e0a090;
+  color: #c03020;
+  border-radius: 7px;
+  padding: 8px 16px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-top: 0.6rem;
+  transition: all 0.15s;
+}
+
+.reset-day-btn:hover {
+  background: #f8e0dc;
+  border-color: #c03020;
+}
+
+/* ---------- Input / Select ---------- */
+.add-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.add-row input,
+.add-row select {
+  background: #fffdf5;
+  border: 1.5px solid #d4b896;
+  border-radius: 7px;
+  color: #2a1f0e;
+  padding: 8px 12px;
+  font-family: 'Crimson Text', serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.add-row input {
+  flex: 1;
+  min-width: 120px;
+}
+
+.add-row input::placeholder {
+  color: #c4a878;
+}
+
+.add-row input:focus,
+.add-row select:focus {
+  border-color: #c8902a;
+}
+
+/* ---------- Chronicle Log ---------- */
+.log-list {
+  max-height: 130px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.log-item {
+  font-size: 14px;
+  color: #a07840;
+  font-style: italic;
+  padding: 4px 0;
+  border-bottom: 1px solid #ece0c8;
+}
+
+.log-item span {
+  color: #7a3a0a;
+  font-weight: 600;
+}
+
+/* ---------- Notification Banner ---------- */
+.notify-msg {
+  display: none;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 15px;
+  color: #7a3a0a;
+  letter-spacing: 2px;
+  padding: 10px;
+  border: 1.5px solid #c8902a;
+  border-radius: 8px;
+  background: #fff8ec;
+  margin-bottom: 0.8rem;
+  animation: fadeInOut 2.8s forwards;
+}
+
+/* ---------- Animations ---------- */
+.flash {
+  animation: flashXP 0.6s ease;
+}
+
+@keyframes flashXP {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.15); color: #7a3a0a; }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateY(-8px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}

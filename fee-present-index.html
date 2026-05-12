@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grindr — Level Up Your Life</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <h1 class="game-title">⚔ GRINDR</h1>
+    <p class="game-subtitle">— Complete your quests. Level up your life. —</p>
+
+    <div id="notifyMsg" class="notify-msg"></div>
+
+    <!-- HERO PANEL -->
+    <div class="panel">
+      <div class="panel-title">Hero</div>
+      <div class="char-row">
+        <div class="avatar" id="charAvatar">🧝</div>
+        <div class="char-info">
+          <div class="char-name" id="charName">Unnamed Hero</div>
+          <div class="char-class" id="charClass">Wanderer — Tier 0</div>
+          <div class="char-tier" id="charTier">Earn XP to evolve your class</div>
+          <div class="xp-bar-wrap">
+            <div class="xp-bar-fill" id="xpBar" style="width:0%"></div>
+          </div>
+          <div class="xp-text" id="xpText">0 / 100 XP</div>
+        </div>
+        <div class="level-badge">
+          <div class="level-num" id="levelNum">1</div>
+          <div class="level-label">Level</div>
+        </div>
+      </div>
+      <div class="add-row" style="margin-top:1rem">
+        <input id="nameInput" type="text" placeholder="Enter your hero name..." maxlength="24" />
+        <button class="add-btn" onclick="saveChar()">Save Name</button>
+      </div>
+    </div>
+
+    <!-- STATS + HIERARCHY -->
+    <div class="two-col">
+      <div class="panel">
+        <div class="panel-title">Stats</div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-val" id="statTotal">0</div>
+            <div class="stat-label">Quests Done</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statStreak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statXPTotal">0</div>
+            <div class="stat-label">Total XP</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statDays">0</div>
+            <div class="stat-label">Days Active</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Class Hierarchy</div>
+        <div id="tierProgress"></div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="panel">
+      <div class="panel-title">Achievements</div>
+      <div class="badges-grid" id="badgesGrid"></div>
+    </div>
+
+    <!-- DAILY QUESTS -->
+    <div class="panel">
+      <div class="panel-title">Daily Quests</div>
+      <div class="quest-list" id="questList"></div>
+      <div class="add-row">
+        <input id="questInput" type="text" placeholder="Add a new quest..." maxlength="40" />
+        <select id="xpSelect">
+          <option value="10">10 XP — Easy</option>
+          <option value="20" selected>20 XP — Normal</option>
+          <option value="35">35 XP — Hard</option>
+          <option value="50">50 XP — Epic</option>
+        </select>
+        <button class="add-btn" onclick="addQuest()">+ Quest</button>
+      </div>
+      <button class="reset-day-btn" onclick="resetDay()">⟳ New Day — Reset Completions</button>
+    </div>
+
+    <!-- CHRONICLE LOG -->
+    <div class="panel">
+      <div class="panel-title">Chronicle</div>
+      <div class="log-list" id="logList"></div>
+    </div>
+
+  </div><!-- end #app -->
+
+  <script src="app.js"></script>
+</body>
+</html>
